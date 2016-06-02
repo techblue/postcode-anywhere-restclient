@@ -18,6 +18,7 @@ package uk.co.techblue.postcodeanywhere.service;
 import org.jboss.resteasy.client.ClientResponse;
 
 import uk.co.techblue.postcodeanywhere.Service;
+import uk.co.techblue.postcodeanywhere.constant.SearchFor;
 import uk.co.techblue.postcodeanywhere.dto.captureplus.CapturePlusFindResponse;
 import uk.co.techblue.postcodeanywhere.dto.captureplus.CapturePlusRetrieveResponse;
 import uk.co.techblue.postcodeanywhere.exception.LookupException;
@@ -76,4 +77,20 @@ public class CapturePlusService extends Service<CapturePlusResource> {
         final ClientResponse<CapturePlusRetrieveResponse> response = resourceProxy.getCapturePlusRetrieveRecords(key, findRecordId);
         return parseEntityFromResponse(response, LookupException.class);
     }
+    
+    /**
+     * Gets the capture plus find records.
+     *
+     * @param key the key
+     * @param searchTerm the search term
+     * @param country the country
+     * @param addressSearchFor the address search for
+     * @return the capture plus find records
+     * @throws LookupException the lookup exception
+     */
+    public CapturePlusFindResponse getCapturePlusFindRecords(final String key, final String searchTerm, final String country, final SearchFor searchFor) throws LookupException {
+        final ClientResponse<CapturePlusFindResponse> response = resourceProxy.getCapturePlusFindRecords(key, searchTerm, searchFor.getValue(), country);
+        return parseEntityFromResponse(response, LookupException.class);
+    }
+    
 }
