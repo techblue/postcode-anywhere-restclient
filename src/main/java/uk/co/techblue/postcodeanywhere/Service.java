@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014 Technology Blueprint Ltd
+ * Copyright 2016 Technology Blueprint Ltd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,15 @@
  ******************************************************************************/
 package uk.co.techblue.postcodeanywhere;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.http.HttpHost;
+import org.apache.http.client.HttpClient;
+import org.apache.http.conn.params.ConnRoutePNames;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.jboss.resteasy.client.ClientResponse;
 import org.jboss.resteasy.client.ProxyFactory;
+import org.jboss.resteasy.client.core.executors.ApacheHttpClient4Executor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -78,7 +85,15 @@ public abstract class Service<RT extends Resource> {
      */
     private final <T> T getClientService(final Class<T> clazz, final String serverUri) {
         logger.info("Generating REST resource proxy for: " + clazz.getName());
-        return ProxyFactory.create(clazz, serverUri);
+        final String proxyHost = System.getProperty("proxy.host");
+        final int proxyPort = NumberUtils.toInt(System.getProperty("proxy.port"));
+        final HttpClient httpClient = new DefaultHttpClient();
+        if (StringUtils.isNotBlank(proxyHost)) {
+            final HttpHost httpProxy = new HttpHost(proxyHost, proxyPort);
+            httpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, httpProxy);
+        }
+        final ApacheHttpClient4Executor executor = new ApacheHttpClient4Executor(httpClient);
+        return ProxyFactory.create(clazz, serverUri, executor);
     }
 
     /**
