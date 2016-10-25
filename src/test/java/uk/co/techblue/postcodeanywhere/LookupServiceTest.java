@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014 Technology Blueprint Ltd
+ * Copyright 2016 Technology Blueprint Ltd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ package uk.co.techblue.postcodeanywhere;
 
 import uk.co.techblue.postcodeanywhere.exception.LookupException;
 import uk.co.techblue.postcodeanywhere.service.CapturePlusService;
+import uk.co.techblue.postcodeanywhere.service.GeocodeService;
 
 /**
  * The Class LookupServiceTest.
@@ -24,10 +25,10 @@ import uk.co.techblue.postcodeanywhere.service.CapturePlusService;
 public class LookupServiceTest {
 
     /** The Constant POSTCODE_SERVICE_HOST_URI. */
-    private static final String POSTCODE_SERVICE_HOST_URI = "http://services.postcodeanywhere.co.uk";
+    private static final String POSTCODE_SERVICE_HOST_URI = "https://services.postcodeanywhere.co.uk";
 
     /** The Constant LICENSE_KEY. */
-    private static final String LICENSE_KEY = "";
+    private static final String LICENSE_KEY = "AA11-AA11-AA11-AA11";
 
     /**
      * Test capture plus find.
@@ -35,8 +36,27 @@ public class LookupServiceTest {
     private static void testCapturePlusFind() {
         final CapturePlusService capturePlusService = new CapturePlusService(POSTCODE_SERVICE_HOST_URI);
         try {
-            System.out.println(capturePlusService.getCapturePlusFindRecords(LICENSE_KEY, "LN5 7UG", "GBR"));
+            System.out.println(capturePlusService.getCapturePlusFindRecords(LICENSE_KEY, "WR2 6NJ", "engsdf"));
         } catch (final LookupException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void testCapturePlusRetrieve() {
+        final CapturePlusService capturePlusService = new CapturePlusService(POSTCODE_SERVICE_HOST_URI);
+        try {
+            System.out.println(capturePlusService.getCapturePlusRetrieveRecords(LICENSE_KEY, "GBR|26742664"));
+        } catch (final LookupException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void testGeocodeService() {
+        final GeocodeService geocodeService = new GeocodeService(POSTCODE_SERVICE_HOST_URI);
+        try {
+            System.out.println(geocodeService.getGeocodeRecords(LICENSE_KEY, "WR2 6NJ"));
+        } catch (final LookupException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -48,6 +68,8 @@ public class LookupServiceTest {
      */
     public static void main(final String args[]) {
         testCapturePlusFind();
+        testCapturePlusRetrieve();
+        testGeocodeService();
     }
 
 }

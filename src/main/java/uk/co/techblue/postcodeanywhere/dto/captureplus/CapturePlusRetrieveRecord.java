@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014 Technology Blueprint Ltd
+ * Copyright 2016 Technology Blueprint Ltd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  ******************************************************************************/
 package uk.co.techblue.postcodeanywhere.dto.captureplus;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import uk.co.techblue.postcodeanywhere.dto.BaseDto;
 

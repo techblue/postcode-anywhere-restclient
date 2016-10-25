@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014 Technology Blueprint Ltd
+ * Copyright 2016 Technology Blueprint Ltd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,5 +23,5 @@ package uk.co.techblue.postcodeanywhere.constant;
 public interface ApplicationConstant {
 
     /** The service version. */
-    String SERVICE_VERSION = "v2.10";
+    String SERVICE_VERSION = "v1.00";
 }

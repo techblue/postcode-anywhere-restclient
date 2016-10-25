@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014 Technology Blueprint Ltd
+ * Copyright 2016 Technology Blueprint Ltd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  ******************************************************************************/
 package uk.co.techblue.postcodeanywhere.service;
 
-import org.jboss.resteasy.client.ClientResponse;
+import javax.ws.rs.core.Response;
 
 import uk.co.techblue.postcodeanywhere.Service;
 import uk.co.techblue.postcodeanywhere.constant.SearchFor;
@@ -61,8 +61,8 @@ public class CapturePlusService extends Service<CapturePlusResource> {
      * @throws LookupException the lookup exception
      */
     public CapturePlusFindResponse getCapturePlusFindRecords(final String key, final String searchTerm, final String country) throws LookupException {
-        final ClientResponse<CapturePlusFindResponse> response = resourceProxy.getCapturePlusFindRecords(key, searchTerm, "Everything", country);
-        return parseEntityFromResponse(response, LookupException.class);
+        final Response response = resourceProxy.getCapturePlusFindRecords(key, searchTerm, "Everything", country);
+        return parseEntityFromResponse(response, CapturePlusFindResponse.class, LookupException.class);
     }
 
     /**
@@ -74,10 +74,10 @@ public class CapturePlusService extends Service<CapturePlusResource> {
      * @throws LookupException the lookup exception
      */
     public CapturePlusRetrieveResponse getCapturePlusRetrieveRecords(final String key, final String findRecordId) throws LookupException {
-        final ClientResponse<CapturePlusRetrieveResponse> response = resourceProxy.getCapturePlusRetrieveRecords(key, findRecordId);
-        return parseEntityFromResponse(response, LookupException.class);
+        final Response response = resourceProxy.getCapturePlusRetrieveRecords(key, findRecordId);
+        return parseEntityFromResponse(response, CapturePlusRetrieveResponse.class, LookupException.class);
     }
-    
+
     /**
      * Gets the capture plus find records.
      *
@@ -89,8 +89,8 @@ public class CapturePlusService extends Service<CapturePlusResource> {
      * @throws LookupException the lookup exception
      */
     public CapturePlusFindResponse getCapturePlusFindRecords(final String key, final String searchTerm, final String country, final SearchFor searchFor) throws LookupException {
-        final ClientResponse<CapturePlusFindResponse> response = resourceProxy.getCapturePlusFindRecords(key, searchTerm, searchFor.getValue(), country);
-        return parseEntityFromResponse(response, LookupException.class);
+        final Response response = resourceProxy.getCapturePlusFindRecords(key, searchTerm, searchFor.getValue(), country);
+        return parseEntityFromResponse(response, CapturePlusFindResponse.class, LookupException.class);
     }
-    
+
 }
