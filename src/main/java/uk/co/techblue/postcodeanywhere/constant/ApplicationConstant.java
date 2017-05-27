@@ -23,5 +23,5 @@ package uk.co.techblue.postcodeanywhere.constant;
 public interface ApplicationConstant {
 
     /** The service version. */
-    String SERVICE_VERSION = "v1.00";
+    String SERVICE_VERSION = "v2.10";
 }
