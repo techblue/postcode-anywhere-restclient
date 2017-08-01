@@ -22,24 +22,24 @@ public class BankAccountValidationResponse extends BaseDto {
 
     /** The sort code records. */
     @JsonProperty("Items")
-    private List<BankAccountValidationRecord> bankingRecords;
+    private List<BankAccountValidationRecord> bankAccountValidationRecords;
 
     /**
-     * Gets the banking records.
+     * Gets the bank account validation records.
      *
-     * @return the banking records
+     * @return the bank account validation records
      */
-    public List<BankAccountValidationRecord> getBankingRecords() {
-        return bankingRecords;
+    public List<BankAccountValidationRecord> getBankAccountValidationRecords() {
+        return bankAccountValidationRecords;
     }
 
     /**
-     * Sets the banking records.
+     * Sets the bank account validation records.
      *
-     * @param bankingRecords the new banking records
+     * @param bankAccountValidationRecords the new bank account validation records
      */
-    public void setBankingRecords(final List<BankAccountValidationRecord> bankingRecords) {
-        this.bankingRecords = bankingRecords;
+    public void setBankAccountValidationRecords(final List<BankAccountValidationRecord> bankAccountValidationRecords) {
+        this.bankAccountValidationRecords = bankAccountValidationRecords;
     }
 
 }

@@ -24,7 +24,7 @@ public class BankAccountValidationRecord extends BaseDto {
 
     /** The easting. */
     @JsonProperty("BankBIC")
-    private String banlkBic;
+    private String bankBic;
 
     /** The northing. */
     @JsonProperty("Branch")
@@ -36,7 +36,7 @@ public class BankAccountValidationRecord extends BaseDto {
 
     /** The longitude. */
     @JsonProperty("ContactAddressLine1")
-    private String xontactAddressLine1;
+    private String contactAddressLine1;
 
     /** The os grid. */
     @JsonProperty("ContactAddressLine2")
@@ -66,6 +66,10 @@ public class BankAccountValidationRecord extends BaseDto {
     @JsonProperty("CHAPSSupported")
     private Boolean chapsSupported;
 
+    /** The is correct. */
+    @JsonProperty("IsCorrect")
+    private Boolean isCorrect;
+
     /**
      * Gets the bank.
      *
@@ -82,24 +86,6 @@ public class BankAccountValidationRecord extends BaseDto {
      */
     public void setBank(final String bank) {
         this.bank = bank;
-    }
-
-    /**
-     * Gets the banlk bic.
-     *
-     * @return the banlk bic
-     */
-    public String getBanlkBic() {
-        return banlkBic;
-    }
-
-    /**
-     * Sets the banlk bic.
-     *
-     * @param banlkBic the new banlk bic
-     */
-    public void setBanlkBic(final String banlkBic) {
-        this.banlkBic = banlkBic;
     }
 
     /**
@@ -136,24 +122,6 @@ public class BankAccountValidationRecord extends BaseDto {
      */
     public void setBranchBIC(final String branchBIC) {
         this.branchBIC = branchBIC;
-    }
-
-    /**
-     * Gets the xontact address line 1.
-     *
-     * @return the xontact address line 1
-     */
-    public String getXontactAddressLine1() {
-        return xontactAddressLine1;
-    }
-
-    /**
-     * Sets the xontact address line 1.
-     *
-     * @param xontactAddressLine1 the new xontact address line 1
-     */
-    public void setXontactAddressLine1(final String xontactAddressLine1) {
-        this.xontactAddressLine1 = xontactAddressLine1;
     }
 
     /**
@@ -280,5 +248,59 @@ public class BankAccountValidationRecord extends BaseDto {
      */
     public void setChapsSupported(final Boolean chapsSupported) {
         this.chapsSupported = chapsSupported;
+    }
+
+    /**
+     * Gets the bank bic.
+     *
+     * @return the bank bic
+     */
+    public String getBankBic() {
+        return bankBic;
+    }
+
+    /**
+     * Sets the bank bic.
+     *
+     * @param bankBic the new bank bic
+     */
+    public void setBankBic(final String bankBic) {
+        this.bankBic = bankBic;
+    }
+
+    /**
+     * Gets the contact address line 1.
+     *
+     * @return the contact address line 1
+     */
+    public String getContactAddressLine1() {
+        return contactAddressLine1;
+    }
+
+    /**
+     * Sets the contact address line 1.
+     *
+     * @param contactAddressLine1 the new contact address line 1
+     */
+    public void setContactAddressLine1(final String contactAddressLine1) {
+        this.contactAddressLine1 = contactAddressLine1;
+    }
+
+    /**
+     * Gets the checks if is correct.
+     *
+     * @return the checks if is correct
+     */
+    public Boolean getIsCorrect() {
+        return isCorrect;
+    }
+
+    /**
+     * Sets the checks if is correct.
+     *
+     * @param isCorrect the new checks if is correct
+     */
+    public void setIsCorrect(final Boolean isCorrect) {
+        this.isCorrect = isCorrect;
     }
 }
