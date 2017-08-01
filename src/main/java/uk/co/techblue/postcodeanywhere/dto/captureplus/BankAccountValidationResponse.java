@@ -11,25 +11,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.co.techblue.postcodeanywhere.dto.BaseDto;
 
 /**
- * The Class SortCodeResponse.
+ * The Class BankAccountValidationResponse.
  *
  * @author <a href="mailto:dishant.mehta@techblue.co.uk">Dishant Mehta</a>
  */
-public class BankingResponse extends BaseDto {
+public class BankAccountValidationResponse extends BaseDto {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -3115746155999649986L;
 
     /** The sort code records. */
     @JsonProperty("Items")
-    private List<BankingValidationRecord> bankingRecords;
+    private List<BankAccountValidationRecord> bankingRecords;
 
     /**
      * Gets the banking records.
      *
      * @return the banking records
      */
-    public List<BankingValidationRecord> getBankingRecords() {
+    public List<BankAccountValidationRecord> getBankingRecords() {
         return bankingRecords;
     }
 
@@ -38,7 +38,7 @@ public class BankingResponse extends BaseDto {
      *
      * @param bankingRecords the new banking records
      */
-    public void setBankingRecords(final List<BankingValidationRecord> bankingRecords) {
+    public void setBankingRecords(final List<BankAccountValidationRecord> bankingRecords) {
         this.bankingRecords = bankingRecords;
     }
 

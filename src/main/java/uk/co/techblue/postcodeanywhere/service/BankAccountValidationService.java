@@ -7,23 +7,23 @@ package uk.co.techblue.postcodeanywhere.service;
 import javax.ws.rs.core.Response;
 
 import uk.co.techblue.postcodeanywhere.Service;
-import uk.co.techblue.postcodeanywhere.dto.captureplus.BankingResponse;
+import uk.co.techblue.postcodeanywhere.dto.captureplus.BankAccountValidationResponse;
 import uk.co.techblue.postcodeanywhere.exception.LookupException;
 import uk.co.techblue.postcodeanywhere.resource.BankingResource;
 
 /**
- * The Class BankingService.
+ * The Class BankAccountValidationService.
  *
  * @author <a href="mailto:dishant.mehta@techblue.co.uk">Dishant Mehta</a>
  */
-public class BankingService extends Service<BankingResource> {
+public class BankAccountValidationService extends Service<BankingResource> {
 
     /**
      * Instantiates a new banking service.
      *
      * @param restBaseUri the rest base uri
      */
-    public BankingService(final String restBaseUri) {
+    public BankAccountValidationService(final String restBaseUri) {
         super(restBaseUri);
     }
 
@@ -47,9 +47,9 @@ public class BankingService extends Service<BankingResource> {
      * @return the banking response
      * @throws LookupException the lookup exception
      */
-    public BankingResponse validateBankingDetails(final String key, final String sortCode, final String accountNumber) throws LookupException {
+    public BankAccountValidationResponse validateBankingDetails(final String key, final String sortCode, final String accountNumber) throws LookupException {
         final Response response = resourceProxy.validateBankingDetails(key, sortCode, accountNumber);
-        return parseEntityFromResponse(response, BankingResponse.class, LookupException.class);
+        return parseEntityFromResponse(response, BankAccountValidationResponse.class, LookupException.class);
     }
 
 }

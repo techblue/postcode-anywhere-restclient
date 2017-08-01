@@ -9,11 +9,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.co.techblue.postcodeanywhere.dto.BaseDto;
 
 /**
- * The Class SortCodeRecord.
+ * The Class BankAccountValidationRecord.
  *
  * @author <a href="mailto:dishant.mehta@techblue.co.uk">Dishant Mehta</a>
  */
-public class BankingValidationRecord extends BaseDto {
+public class BankAccountValidationRecord extends BaseDto {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 8422251037094969449L;
@@ -62,7 +62,7 @@ public class BankingValidationRecord extends BaseDto {
     @JsonProperty("FasterPaymentsSupported")
     private Boolean fasterPaymentsSupported;
 
-    /** The c HAPS supported. */
+    /** The chaps supported. */
     @JsonProperty("CHAPSSupported")
     private Boolean chapsSupported;
 
@@ -265,21 +265,20 @@ public class BankingValidationRecord extends BaseDto {
     }
 
     /**
-     * Gets the c HAPS supported.
+     * Gets the chaps supported.
      *
-     * @return the c HAPS supported
+     * @return the chaps supported
      */
-    public Boolean getcHAPSSupported() {
+    public Boolean getChapsSupported() {
         return chapsSupported;
     }
 
     /**
-     * Sets the c HAPS supported.
+     * Sets the chaps supported.
      *
-     * @param chapsSupported the new c HAPS supported
+     * @param chapsSupported the new chaps supported
      */
-    public void setcHAPSSupported(final Boolean chapsSupported) {
+    public void setChapsSupported(final Boolean chapsSupported) {
         this.chapsSupported = chapsSupported;
     }
-
 }
