@@ -16,11 +16,14 @@
 package uk.co.techblue.postcodeanywhere;
 
 import uk.co.techblue.postcodeanywhere.exception.LookupException;
+import uk.co.techblue.postcodeanywhere.service.BankAccountValidationService;
 import uk.co.techblue.postcodeanywhere.service.CapturePlusService;
 import uk.co.techblue.postcodeanywhere.service.GeocodeService;
 
 /**
  * The Class LookupServiceTest.
+ *
+ * @author <a href="mailto:dishant.mehta@techblue.co.uk">Dishant Mehta</a>
  */
 public class LookupServiceTest {
 
@@ -42,6 +45,9 @@ public class LookupServiceTest {
         }
     }
 
+    /**
+     * Test capture plus retrieve.
+     */
     private static void testCapturePlusRetrieve() {
         final CapturePlusService capturePlusService = new CapturePlusService(POSTCODE_SERVICE_HOST_URI);
         try {
@@ -51,12 +57,26 @@ public class LookupServiceTest {
         }
     }
 
+    /**
+     * Test geocode service.
+     */
     private static void testGeocodeService() {
         final GeocodeService geocodeService = new GeocodeService(POSTCODE_SERVICE_HOST_URI);
         try {
             System.out.println(geocodeService.getGeocodeRecords(LICENSE_KEY, "WR2 6NJ"));
         } catch (final LookupException e) {
-            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Test bank account validation.
+     */
+    private static void testBankAccountValidation() {
+        final BankAccountValidationService bankAccountValidationService = new BankAccountValidationService(POSTCODE_SERVICE_HOST_URI);
+        try {
+            System.out.println(bankAccountValidationService.validateBankingDetails(LICENSE_KEY, "404784", "70872490"));
+        } catch (final LookupException e) {
             e.printStackTrace();
         }
     }
@@ -70,6 +90,7 @@ public class LookupServiceTest {
         testCapturePlusFind();
         testCapturePlusRetrieve();
         testGeocodeService();
+        testBankAccountValidation();
     }
 
 }
