@@ -22,7 +22,7 @@ import uk.co.techblue.postcodeanywhere.Resource;
  * @author <a href="mailto:dishant.mehta@techblue.co.uk">Dishant Mehta</a>
  */
 @Path("/BankAccountValidation/Interactive")
-public interface BankingResource extends Resource {
+public interface BankAccountValidationResource extends Resource {
 
     /**
      * Validate banking details.

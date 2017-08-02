@@ -9,14 +9,14 @@ import javax.ws.rs.core.Response;
 import uk.co.techblue.postcodeanywhere.Service;
 import uk.co.techblue.postcodeanywhere.dto.captureplus.BankAccountValidationResponse;
 import uk.co.techblue.postcodeanywhere.exception.LookupException;
-import uk.co.techblue.postcodeanywhere.resource.BankingResource;
+import uk.co.techblue.postcodeanywhere.resource.BankAccountValidationResource;
 
 /**
  * The Class BankAccountValidationService.
  *
  * @author <a href="mailto:dishant.mehta@techblue.co.uk">Dishant Mehta</a>
  */
-public class BankAccountValidationService extends Service<BankingResource> {
+public class BankAccountValidationService extends Service<BankAccountValidationResource> {
 
     /**
      * Instantiates a new banking service.
@@ -33,8 +33,8 @@ public class BankAccountValidationService extends Service<BankingResource> {
      * @see uk.co.techblue.postcodeanywhere.Service#getResourceClass()
      */
     @Override
-    protected Class<BankingResource> getResourceClass() {
-        return BankingResource.class;
+    protected Class<BankAccountValidationResource> getResourceClass() {
+        return BankAccountValidationResource.class;
 
     }
 
