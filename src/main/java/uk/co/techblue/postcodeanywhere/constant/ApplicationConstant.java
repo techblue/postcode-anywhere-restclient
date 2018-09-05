@@ -23,7 +23,7 @@ package uk.co.techblue.postcodeanywhere.constant;
 public interface ApplicationConstant {
 
     /** The service version. */
-    String SERVICE_VERSION = "v2.10";
+    String SERVICE_VERSION = "v1.00";
 
     /** The banking service version. */
     String BANKING_SERVICE_VERSION = "v2.00";
