@@ -3,7 +3,7 @@
 	<groupId>uk.co.techblue</groupId>
 	<artifactId>postcode-anywhere-restclient</artifactId>
 	<packaging>jar</packaging>
-	<version>2.2-SNAPSHOT</version>
+	<version>2.3-SNAPSHOT</version>
 	<name>Postcode Anywhere Restclient</name>
 	<url>http://maven.apache.org</url>
 	<properties>
